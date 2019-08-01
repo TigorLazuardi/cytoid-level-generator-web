@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Cytoid Level Generator</title>
+  <link rel="stylesheet" href="./materialize/css/materialize.min.css">
+  <link rel="stylesheet" href="./font/font.css">
+  <link rel="stylesheet" href="./personal.css">
+</head>
+
+<body>
+  <form onsubmit="generate()">
+    <div class="container">
+      <div class="row">
+        <h1 class="col s12 blue-text text-darken-2 center">Cytoid Level Generator</h1>
+      </div>
+      <!-- Input Section -->
+      <div class="row">
+        <h2 class="col s12 blue-text text-darken-2 section">Input</h2>
+        <div class="col s12 divider"></div>
+      </div>
+      <div class="row">
+        <!-- Input: Music -->
+        <h5 class="col s5 blue-text text-darken-2">Music</h5>
+        <div class="col s7">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" id="musicGlobal" accept=".mp3" required>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Required">
+              <span class="helper-text">Supported Format: MP3</span>
+            </div>
+          </div>
+        </div>
+        <!-- Input: Music Preview-->
+        <h5 class="col s5 blue-text text-darken-2">Music Preview</h5>
+        <div class="col s7">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" id="musicPreview" accept=".mp3" required>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Required">
+              <span class="helper-text">Supported Format: MP3</span>
+            </div>
+          </div>
+        </div>
+        <!-- Input: Background Image-->
+        <h5 class="col s5 blue-text text-darken-2">Background Image</h5>
+        <div class="col s7">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" id="backgroundImage" accept=".jpg,.png,.jpeg" required>
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Required">
+              <span class="helper-text">Supported Format: PNG, JPEG</span>
+            </div>
+          </div>
+        </div>
+        <!-- Input: Storyboard Global -->
+        <h5 class="col s5 blue-text text-darken-2">Storyboard (Global)</h5>
+        <div class="col s7">
+          <div class="file-field input-field">
+            <div class="btn">
+              <span>File</span>
+              <input type="file" id="storyboardGlobal">
+            </div>
+            <div class="file-path-wrapper">
+              <input class="file-path validate" type="text" placeholder="Optional">
+              <span class="helper-text">Storyboard chosen in this field will be played on all levels. For specific
+                levels
+                Storyboard, use Custom Storyboard.</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Chart Section -->
+      <div class="row">
+        <h2 class="col s12 blue-text text-darken-2 section">Charts</h2>
+        <div class="col s12 divider"></div>
+        <p class="col s12 helper-text">* One difficulty must be selected.</p>
+
+
+        <!--              Easy Difficulty                   -->
+
+
+
+        <div class="col s4 card-panel">
+          <div class="row">
+            <h4 class="col s12" style="color: #54a7b0">Easy</h4>
+            <div action="#">
+              <p class="col s12">
+                <label>
+                  <input type="checkbox" class="filled-in" id="checkBoxEasy" name="checkBoxSelect" />
+                  <span style="color: #54a7b0">Use Easy Difficulty</span>
+                </label>
+              </p>
+              <div class="col s12">
+                <div class="input-field">
+                  <input placeholder="5" id="diffEasy" type="number" class="validate" name="diffEasy"
+                    style="color: #54a7b0">
+                  <label for=" diffEasy" style="color: #54a7b0">Difficulty</label>
+                  <span class="helper-text">Difficulty with value '0' or below will
+                    display '?' and value above '15' will display '15+'</span>
+                </div>
+              </div>
+              <!-- Chart File Input-->
+              <div class="col s12">
+                <h5 style="color: #54a7b0">Chart File</h5>
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>File</span>
+                    <input type="file" id="chartFileEasy" style="background-color: #54a7b0">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Required" style="color: #54a7b0">
+                  </div>
+                </div>
+              </div>
+              <!-- Custom Music File Input-->
+              <div class="col s12">
+                <h5 style="color: #54a7b0">Custom Music</h5>
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>File</span>
+                    <input type="file" id="musicFileEasy" style="background-color: #54a7b0" accept=".mp3">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Optional" style="color: #54a7b0">
+                    <span class="helper-text">If this difficulty uses different
+                      music, enter it here.</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Custom Storyboard Input-->
+              <div class="col s12">
+                <h5 style="color: #54a7b0">Custom Storyboard</h5>
+                <div class="file-field input-field">
+                  <div class="btn">
+                    <span>File</span>
+                    <input type="file" id="storyboardFileEasy" style="background-color: #54a7b0">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Optional" style="color: #54a7b0">
+                    <span class="helper-text">Storyboard for current difficulty
+                      only</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="input-field">
+                  <input placeholder="Optional" id="customNameEasy" type="text" class="validate">
+                  <label for="customNameEasy" style="color: #54a7b0">Custom Name</label>
+                  <span class="helper-text">Recommended to use 5 letters or less to reduce
+                    possibility of overlapping.</span>
+                </div>
+              </div>
+              <!-- End Chart Input-->
+            </div>
+          </div>
+        </div> <!-- End Easy Card-->
+
+
+
+        <!--                Hard Difficulty               -->
+
+
+
+
+        <div class="col s4 card-panel" style="color: #7469ca;">
+          <div class="row">
+            <h4 class="col s12">Hard</h4>
+            <div action="#">
+              <p class="col s12">
+                <label>
+                  <input type="checkbox" class="filled-in" name="checkBoxSelect" id="checkBoxHard" />
+                  <span style="color: #7469ca;">Use Hard Difficulty</span>
+                </label>
+              </p>
+              <div class="col s12">
+                <div class="input-field">
+                  <input placeholder="10" id="diffHard" type="number" class="validate" id="diffHard"
+                    style="color: #7469ca;">
+                  <label for="diffHard" style="color: #7469ca;">Difficulty</label>
+                  <span class="helper-text">Difficulty with value '0' or below will
+                    display '?' and value above '15' will display '15+'</span>
+                </div>
+              </div>
+              <!-- Chart File Input-->
+              <div class="col s12">
+                <h5 style="color: #7469ca;">Chart File</h5>
+                <div class="file-field input-field">
+                  <div class="btn" style="background-color: #7469ca;">
+                    <span>File</span>
+                    <input type="file" id="chartFileHard">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Required" style="color: #7469ca;">
+                  </div>
+                </div>
+              </div>
+              <!-- Custom Music File Input-->
+              <div class="col s12">
+                <h5 style="color: #7469ca;">Custom Music</h5>
+                <div class="file-field input-field">
+                  <div class="btn" style="background-color: #7469ca;">
+                    <span>File</span>
+                    <input type="file" id="musicFileHard" accept=".mp3">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Optional">
+                    <span class="helper-text" data-error="wrong" data-success="right">If this difficulty uses different
+                      music, enter it here.</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Custom Storyboard Input-->
+              <div class="col s12">
+                <h5 style="color: #7469ca;">Custom Storyboard</h5>
+                <div class="file-field input-field">
+                  <div class="btn" style="background-color: #7469ca;">
+                    <span>File</span>
+                    <input type="file" id="storyboardHard">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Optional">
+                    <span class="helper-text" data-error="wrong" data-success="right">Storyboard for current difficulty
+                      only</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="input-field">
+                  <input placeholder="Optional" id="customNameHard" type="text" class="validate"
+                    style="color: #7469ca;">
+                  <label for="customNameHard" style="color: #7469ca;">Custom Name</label>
+                  <span class="helper-text">Recommended to use 5 letters or less
+                    to reduce possibility of overlapping.</span>
+                </div>
+              </div>
+              <!-- End Chart Input-->
+            </div>
+          </div>
+        </div> <!-- End Hard Card-->
+
+        <!-- Extreme / Chaos-->
+        <div class="col s4 card-panel">
+          <div class="row">
+            <h4 class="col s12" style="color: #57000b;">Extreme</h4>
+            <div action="#">
+              <p class="col s12">
+                <label>
+                  <input type="checkbox" class="filled-in" name="checkBoxSelect" id="checkBoxExtreme" />
+                  <span style="color: #57000b;">Use Extreme Difficulty</span>
+                </label>
+              </p>
+              <div class="col s12">
+                <div class="input-field">
+                  <input placeholder="15" id="diffExtreme" type="number" class="validate" style="color: #57000b;">
+                  <label for="diffEasy" style="color: #57000b;">Difficulty</label>
+                  <span class="helper-text">Difficulty with value '0' or below will
+                    display '?' and value above '15' will display '15+'</span>
+                </div>
+              </div>
+              <!-- Chart File Input-->
+              <div class="col s12">
+                <h5 style="color: #57000b;">Chart File</h5>
+                <div class="file-field input-field">
+                  <div class="btn" style="background-color: #57000b">
+                    <span>File</span>
+                    <input type="file" id="chartFileExtreme">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Required">
+                  </div>
+                </div>
+              </div>
+              <!-- Custom Music File Input-->
+              <div class="col s12">
+                <h5 style="color: #57000b;">Custom Music</h5>
+                <div class="file-field input-field">
+                  <div class="btn" style="background-color: #57000b">
+                    <span>File</span>
+                    <input type="file" id="musicFileExtreme" accept=".mp3">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Optional">
+                    <span class="helper-text" data-error="wrong" data-success="right">If this difficulty uses different
+                      music, enter it here.</span>
+                  </div>
+                </div>
+              </div>
+              <!-- Custom Storyboard Input-->
+              <div class="col s12">
+                <h5 style="color: #57000b;">Custom Storyboard</h5>
+                <div class="file-field input-field">
+                  <div class="btn" style="background-color: #57000b">
+                    <span>File</span>
+                    <input type="file" id="storyboardExtreme">
+                  </div>
+                  <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text" placeholder="Optional">
+                    <span class="helper-text" data-error="wrong" data-success="right">Storyboard for current difficulty
+                      only</span>
+                  </div>
+                </div>
+              </div>
+              <div class="col s12">
+                <div class="input-field">
+                  <input placeholder="Optional" id="customNameExtreme" type="text" class="validate">
+                  <label for="cnEasy" style="color: #57000b;">Custom Name</label>
+                  <span class="helper-text" data-error="wrong" data-success="right">Recommended to use 5 letters or less
+                    to reduce possibility of overlapping.</span>
+                </div>
+              </div>
+              <!-- End Chart Input-->
+            </div>
+          </div>
+        </div> <!-- End Easy Card-->
+
+        <!--    //////////////                      METADATA         //////////////////                 -->
+
+        <div class="row">
+          <h2 class="col s12 blue-text text-darken-2 section">Metadata</h2>
+          <div class="col s12 divider"></div>
+        </div>
+
+        <!--   Metadata div  -->
+
+        <div class="row">
+          <div class="input-field col s6">
+            <input value="2" type="text" class="validate" disabled style="color: #57000b;">
+            <label>Schema Version</label>
+            <span class="helper-text">Unless otherwise stated, Schema Version is always '2'</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="chartVersion" type="number" class="validate" min="1" max="999" placeholder="1">
+            <label for="chartVersion">Chart Version</label>
+            <span class="helper-text">If it's a new chart, please put any value between 1 to 999, Recommended value is
+              1.<br> If
+              it's an edit of previous chart, chart version must be higher than the last version used to upload to
+              Cytoid.io</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="chartAuthor" type="text" class="validate" placeholder="Required">
+            <label for="chartAuthor">Chart Author</label>
+            <span class="helper-text">The author of the chart. Hopefully, you.</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="chartID" type="text" class="validate" placeholder="[chart author].[title]" pattern="[\w\-\._]+">
+            <label for="chartID">Chart ID</label>
+            <span class="helper-text"
+              data-error="Please put a valid Format. Only Texts, Numbers, Dashes [-], Dots [.], and Underscores [_] are supported">Only
+              Texts, Numbers, Dashes [-], Dots [.], and Underscores [_] are supported. If left empty, the Generator will
+              use chart
+              author and music title.</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="musicTitle" type="text" class="validate" placeholder="Required">
+            <label for="musicTitle">Music Title</label>
+            <span class="helper-text">Title of music used in the chart.</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="musicTitleLocal" type="text" class="validate" placeholder="Optional">
+            <label for="musicTitleLocal">Music Title (Localized)</label>
+            <span class="helper-text">The english translation of a music title.</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="musicArtist" type="text" class="validate" placeholder="Required">
+            <label for="musicArtist">Music Artist</label>
+            <span class="helper-text">Artist of music used in the chart.</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="musicArtistLocal" type="text" class="validate" placeholder="Optional">
+            <label for="musicArtistLocal">Music Artist (Localized)</label>
+            <span class="helper-text">The english translation of the artist name.</span>
+          </div>
+          <div class="input-field col s12">
+            <input id="musicSource" type="url" class="validate" placeholder="Required">
+            <label for="musicSource">Music Source</label>
+            <span class="helper-text"
+              data-error="wrong URL Format. Make sure the protocol (e.g. https://) is also included">Please post the URL
+              where the music can be found, preferably where those who are interested in the music can buy it. Can be
+              YouTube, Artist's website, Bandcamp, iTunes, etc.</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="pictureAuthor" type="text" class="validate" placeholder="Required">
+            <label for="pictureAuthor">Picture Author</label>
+            <span class="helper-text">The background picture artist's name</span>
+          </div>
+          <div class="input-field col s6">
+            <input id="pictureSource" type="url" class="validate" placeholder="Required">
+            <label for="pictureSource">Picture Source</label>
+            <span class="helper-text"
+              data-error="wrong URL Format. Make sure the protocol (e.g. https://) is also included">Please post the URL
+              where the image can be found.</span>
+          </div>
+        </div>
+        <!--   End of Metadata div  -->
+
+        <div class="row">
+          <div class="s12 center-align">
+            <input type="submit" class="btn" value="Generate">
+          </div>
+        </div>
+      </div>
+  </form>
+  <!--Line above is Closing Container-->
+  <div class="container">
+    <div class="row">
+      <h2 class="col s12 blue-text text-darken-2 center">Output</h2>
+    </div>
+  </div>
+
+
+  <script src="./materialize/js/materialize.min.js"></script>
+  <script src="./generator.js"></script>
+</body>
+
+</html>
