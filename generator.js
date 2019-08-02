@@ -53,6 +53,8 @@ function generate() {
 
     base.charts = getChartList(base.charts)
 
+    unHidden()
+
     return base
 }
 
@@ -97,4 +99,8 @@ function getChartList(array) {
         array.push(diffCharts)
     }
     return array
+}
+
+function unHidden() {
+    
 }
