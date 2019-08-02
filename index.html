@@ -9,7 +9,8 @@
 </head>
 
 <body>
-  <form onsubmit="generate()">
+  <form id="formInput">
+  <!-- <form> -->
     <div class="container">
       <div class="row">
         <h1 class="col s12 blue-text text-darken-2 center">Cytoid Level Generator</h1>
@@ -347,7 +348,7 @@
               Cytoid.io</span>
           </div>
           <div class="input-field col s6">
-            <input id="chartAuthor" type="text" class="validate" placeholder="Required">
+            <input id="chartAuthor" type="text" class="validate" placeholder="Required" required>
             <label for="chartAuthor">Chart Author</label>
             <span class="helper-text">The author of the chart. Hopefully, you.</span>
           </div>
@@ -361,7 +362,7 @@
               author and music title.</span>
           </div>
           <div class="input-field col s6">
-            <input id="musicTitle" type="text" class="validate" placeholder="Required">
+            <input id="musicTitle" type="text" class="validate" placeholder="Required" required>
             <label for="musicTitle">Music Title</label>
             <span class="helper-text">Title of music used in the chart.</span>
           </div>
@@ -371,7 +372,7 @@
             <span class="helper-text">The english translation of a music title.</span>
           </div>
           <div class="input-field col s6">
-            <input id="musicArtist" type="text" class="validate" placeholder="Required">
+            <input id="musicArtist" type="text" class="validate" placeholder="Not crediting someone's work is very heavily frowned upon">
             <label for="musicArtist">Music Artist</label>
             <span class="helper-text">Artist of music used in the chart.</span>
           </div>
@@ -381,7 +382,7 @@
             <span class="helper-text">The english translation of the artist name.</span>
           </div>
           <div class="input-field col s12">
-            <input id="musicSource" type="url" class="validate" placeholder="Required">
+            <input id="musicSource" type="url" class="validate" placeholder="Not crediting someone's work is very heavily frowned upon">
             <label for="musicSource">Music Source</label>
             <span class="helper-text"
               data-error="wrong URL Format. Make sure the protocol (e.g. https://) is also included">Please post the URL
@@ -389,12 +390,12 @@
               YouTube, Artist's website, Bandcamp, iTunes, etc.</span>
           </div>
           <div class="input-field col s6">
-            <input id="pictureAuthor" type="text" class="validate" placeholder="Required">
+            <input id="pictureAuthor" type="text" class="validate" placeholder="Required" required>
             <label for="pictureAuthor">Picture Author</label>
             <span class="helper-text">The background picture artist's name</span>
           </div>
           <div class="input-field col s6">
-            <input id="pictureSource" type="url" class="validate" placeholder="Required">
+            <input id="pictureSource" type="url" class="validate" placeholder="Required" required>
             <label for="pictureSource">Picture Source</label>
             <span class="helper-text"
               data-error="wrong URL Format. Make sure the protocol (e.g. https://) is also included">Please post the URL
@@ -405,7 +406,8 @@
 
         <div class="row">
           <div class="s12 center-align">
-            <input type="submit" class="btn" value="Generate">
+            <!-- <button type="submit" class="btn" value="Generate" onclick="generate()">Generate</button> -->
+            <button type="submit" class="btn" value="Generate" onclick="isValid()">Generate</button>
           </div>
         </div>
       </div>
@@ -414,8 +416,8 @@
   <div class="container hiddendiv" id="hidingDiv">
     <div class="row">
       <h2 class="col s12 blue-text text-darken-2 center">Output</h2>
-      <div id="outputContainer" class="col s12 grey-text card-panel grey lighten-3 text-darken-2">
-      </div>
+      <pre id="outputContainer" class="col s12 grey-text card-panel grey lighten-3 text-darken-2">
+      </pre>
     </div>
   </div>
 
